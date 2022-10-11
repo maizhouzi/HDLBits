@@ -1,4 +1,4 @@
-module(
+module add(
     input clk,
     input[3:0] A,
     input[3:0] B,
@@ -6,14 +6,15 @@ module(
     output reg[4:0] COUNT
     );
     assign OUT=A+B;
+    COUNT<=5'b00000;
     always@(posedge clk)
     begin
         if (OUT==5'b10000)
         begin
-            COUNT=COUNT+1;
+            COUNT<=COUNT+1;
         end
         else begin
-            COUNT=COUNT;
+            COUNT<=COUNT;
         end
     end
 endmodule
